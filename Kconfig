@@ -1,0 +1,10 @@
+config MBUS_MASTER
+    bool "M-Bus master protocol library"
+    help
+      M-Bus (EN 13757) master protocol for reading utility meters.
+
+config MBUS_MASTER_NT750
+    bool "Include NT750 MBUS converter module"
+    depends on MBUS_MASTER
+    help
+      Enable support for NT750 MBUS converter commands.
