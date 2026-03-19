@@ -15,28 +15,13 @@
  *
  */
 
-#include "mbus_master/mbus_master_hardware_selection.h"
-
-#if(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_IN223_GATEWAY)
-#include "in223Gateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_INEDGE_GATEWAY	)
-#include "inEdgeGateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_CNV750IOT_CONVERTER)
-#include "cnv750iot.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_WIN32_SIMULATOR)
-#include "main.h"
-#endif
-
-#if(GATEWAY_TYPE == MBUS)
-#if (MBUS_MASTER_CFG_NT750_ENABLED)
-
 #ifndef _MBUS_PROTOCOL_H_
 #define _MBUS_PROTOCOL_H_
 
 #include <stdlib.h>
 #include <stdint.h>
 #include <time.h>
-#include "lwrb.h"
+#include "mbus_master/lwrb.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -544,7 +529,3 @@ extern "C" {
 #endif
 
 #endif /* _MBUS_PROTOCOL_H_ */
-
-#endif /* MBUS_MASTER_CFG_NT750_ENABLED */
-
-#endif /* GATEWAY_TYPE == MBUS */

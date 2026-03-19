@@ -31,6 +31,16 @@ extern "C" {
 #define MBUS_BAUDRATE_4800      4800
 #define MBUS_BAUDRATE_9600      9600
 
+/* CI-Field codes for changing slave baudrate (EN 13757-2, SND_UD frame) */
+#define MBUS_CI_SET_BAUDRATE_300    0xB8
+#define MBUS_CI_SET_BAUDRATE_600    0xB9
+#define MBUS_CI_SET_BAUDRATE_1200   0xBA
+#define MBUS_CI_SET_BAUDRATE_2400   0xBB
+#define MBUS_CI_SET_BAUDRATE_4800   0xBC
+#define MBUS_CI_SET_BAUDRATE_9600   0xBD
+#define MBUS_CI_SET_BAUDRATE_19200  0xBE
+#define MBUS_CI_SET_BAUDRATE_38400  0xBF
+
 /* ── Enumerations ──────────────────────────────────────────────────── */
 
 typedef enum {
