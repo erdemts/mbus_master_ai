@@ -32,26 +32,15 @@
   * Version:         v2.0.3
   */
 
-#include "mbus_master/mbus_master_hardware_selection.h"
 
-#if(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_IN223_GATEWAY)
-#include "in223Gateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_INEDGE_GATEWAY	)
-#include "inEdgeGateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_CNV750IOT_CONVERTER)
-#include "cnv750iot.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_WIN32_SIMULATOR)
-#include "main.h"
-#endif
 
-#if(GATEWAY_TYPE == MBUS)
 #include "mbus_master/mbus_master.h"
 
 #if (MBUS_MASTER_CFG_NT750_ENABLED)
 
 
 //#include "pch.h"
-#include "nt750/lwrb.h"
+#include "mbus_master/lwrb.h"
 
   /* Memory set and copy functions */
 #define BUF_MEMSET                      memset
@@ -523,4 +512,3 @@ lwrb_advance(lwrb_t* buff, size_t len) {
 
 #endif /* MBUS_MASTER_CFG_NT750_ENABLED */
 
-#endif /* GATEWAY_TYPE == MBUS */

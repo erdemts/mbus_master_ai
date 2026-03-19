@@ -30,28 +30,17 @@
 * ----------------------------------------------------------------------------
 */
 
-#include "mbus_master/mbus_master_hardware_selection.h"
+#include "mbus_master/mbus_master_opt.h"
 
-#if(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_IN223_GATEWAY)
-#include "in223Gateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_INEDGE_GATEWAY	)
-#include "inEdgeGateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_CNV750IOT_CONVERTER)
-#include "cnv750iot.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_WIN32_SIMULATOR)
-#include "main.h"
-#endif
-
-#if(GATEWAY_TYPE == MBUS)
-//#include "mbus_master/mbus_master.h"
-#if (MBUS_MASTER_CFG_NT750_ENABLED)
+#if MBUS_MASTER_CFG_NT750_ENABLED
 
 #ifndef NT750_HDR_H
 #define NT750_HDR_H
 
 /* Get most important include files */
 #include <stdint.h>
-
+#include "mbus_master/nt750_types.h"
+#include "mbus_master/mbus_aux.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -66,7 +55,7 @@ extern "C" {
 	 * \brief           Get the primary address of the NT750
 	 * \param[in,out]   mbus_master: Pointer to mbus_master simple structure
 	 * \param[in,out]   nt750: Pointer to nt750 structure
-	 * \note            Bu fonksiyon hatta sadece tek bir cihaz olduðunda kullanýlmalýdýr.
+	 * \note            Bu fonksiyon hatta sadece tek bir cihaz olduï¿½unda kullanï¿½lmalï¿½dï¿½r.
 	 *
 	 * \return          mbus_master_res_t type indicating the result of the operation
 	 * \Important Note: After calling this function, NT750's raw response stored in mbus_master.raw_data
@@ -568,4 +557,3 @@ extern "C" {
 
 #endif /* MBUS_MASTER_CFG_NT750_ENABLED */
 
-#endif /* GATEWAY_TYPE == MBUS */

@@ -12,26 +12,15 @@
  ******************************************************************************
  */
 
-#include "mbus_master/mbus_master_hardware_selection.h"
 
-#if(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_IN223_GATEWAY)
-#include "in223Gateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_INEDGE_GATEWAY	)
-#include "inEdgeGateway.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_CNV750IOT_CONVERTER)
-#include "cnv750iot.h"
-#elif(GATEWAY_HARDWARE_TYPE == HARDWARE_TYPE_WIN32_SIMULATOR)
-#include "main.h"
-#endif
 
-#if(GATEWAY_TYPE == MBUS)
 #include "mbus_master/mbus_master.h"
 
 #if (MBUS_MASTER_CFG_NT750_ENABLED)
 
  /* Includes -----------------------------------------------------------------*/
 
-#include "nt750/mbus_aux.h"
+#include "mbus_master/mbus_aux.h"
 
 /* Private typedef -----------------------------------------------------------*/
 
@@ -3876,6 +3865,5 @@ void hex_to_float(uint32_t* source, float* dest) {
 
 #endif /* MBUS_MASTER_CFG_NT750_ENABLED */
 
-#endif /* GATEWAY_TYPE == MBUS */
 
 
