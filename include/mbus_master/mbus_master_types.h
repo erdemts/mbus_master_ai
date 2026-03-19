@@ -155,6 +155,10 @@ typedef struct {
     mbus_master_mode_t          mode;               /**< Current operation mode */
     volatile mbus_master_state_t state;             /**< Protocol state machine */
     mbus_master_sub_state_t     sub_state;          /**< Sub-state for frame parsing */
+
+    /* Parser internal state (moved from static vars to eliminate BSS) */
+    uint32_t                    _parser_msg_len;    /**< Frame length counter */
+    uint8_t                     _parser_checksum;   /**< Running checksum */
 } mbus_master_t;
 
 #ifdef __cplusplus

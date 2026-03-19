@@ -12,8 +12,6 @@ extern void mbus_master_add_as_char_to_buffer(mbus_master_buffer_t *buf, uint8_t
 
 void mbus_master_process(mbus_lib_t *ctx, const void *data, size_t data_len) {
     const uint8_t *d = (const uint8_t *)data;
-    static uint32_t mbus_msg_len = 0;
-    static uint8_t checksum = 0;
 
     while (data_len > 0) {
         uint8_t ch = *d++;
@@ -27,7 +25,7 @@ void mbus_master_process(mbus_lib_t *ctx, const void *data, size_t data_len) {
         } else if (ctx->master.state == MBUS_MASTER_STATE_WAIT_SLAVE_RESPONSE) {
             switch (ctx->master.sub_state) {
             case MBUS_MASTER_SUB_STATE_WAIT_FIRST_START:
-                checksum = 0;
+                ctx->master._parser_checksum = 0;
                 if (ch == MBUS_START) {
                     mbus_master_add_as_char_to_buffer(&ctx->master.receive_buffer, ch);
                     ctx->master.sub_state = MBUS_MASTER_SUB_STATE_WAIT_FIRST_LEN;
@@ -35,13 +33,13 @@ void mbus_master_process(mbus_lib_t *ctx, const void *data, size_t data_len) {
                 break;
 
             case MBUS_MASTER_SUB_STATE_WAIT_FIRST_LEN:
-                mbus_msg_len = ch;
+                ctx->master._parser_msg_len = ch;
                 mbus_master_add_as_char_to_buffer(&ctx->master.receive_buffer, ch);
                 ctx->master.sub_state = MBUS_MASTER_SUB_STATE_WAIT_SECOND_LEN;
                 break;
 
             case MBUS_MASTER_SUB_STATE_WAIT_SECOND_LEN:
-                if (mbus_msg_len == ch) {
+                if (ctx->master._parser_msg_len == ch) {
                     mbus_master_add_as_char_to_buffer(&ctx->master.receive_buffer, ch);
                     ctx->master.sub_state = MBUS_MASTER_SUB_STATE_WAIT_SECOND_START;
                 } else {
@@ -51,7 +49,7 @@ void mbus_master_process(mbus_lib_t *ctx, const void *data, size_t data_len) {
 
             case MBUS_MASTER_SUB_STATE_WAIT_SECOND_START:
                 if (ch == 0x68) {
-                    mbus_msg_len = mbus_msg_len + 6 - 4;
+                    ctx->master._parser_msg_len = ctx->master._parser_msg_len + 6 - 4;
                     mbus_master_add_as_char_to_buffer(&ctx->master.receive_buffer, ch);
                     ctx->master.sub_state = MBUS_MASTER_SUB_STATE_WAIT_DATA;
                 } else {
@@ -60,12 +58,12 @@ void mbus_master_process(mbus_lib_t *ctx, const void *data, size_t data_len) {
                 break;
 
             case MBUS_MASTER_SUB_STATE_WAIT_DATA:
-                if (mbus_msg_len > 2) {
+                if (ctx->master._parser_msg_len > 2) {
                     mbus_master_add_as_char_to_buffer(&ctx->master.receive_buffer, ch);
-                    checksum += ch;
-                    mbus_msg_len--;
+                    ctx->master._parser_checksum += ch;
+                    ctx->master._parser_msg_len--;
                 } else {
-                    if (ch == checksum) {
+                    if (ch == ctx->master._parser_checksum) {
                         mbus_master_add_as_char_to_buffer(&ctx->master.receive_buffer, ch);
                         ctx->master.sub_state = MBUS_MASTER_SUB_STATE_WAIT_STOP;
                     } else {
