@@ -1,0 +1,65 @@
+# Build outputs
+*.o
+*.d
+*.obj
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.axf
+*.htm
+*.lnp
+*.sct
+*.dep
+*.lib
+*.a
+
+# Keil MDK
+*.uvguix.*
+*.uvoptx
+*.bak
+*.ini
+Listings/
+Objects/
+Obj/
+obj/
+RTE/
+DebugConfig/
+EventRecorderStub.scvd
+
+# IAR
+Debug/
+Release/
+settings/
+*.dep
+*.ewt
+
+# CMake
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# IDE
+.vscode/
+.vs/
+*.suo
+*.user
+*.ncb
+*.aps
+.idea/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporary
+*.tmp
+*.bak
+*.swp
+*~

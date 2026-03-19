@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Kaynak Dosyalar">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="devlib">
+      <UniqueIdentifier>{8b56552a-552d-4d66-8147-a0d5e50ab384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devlib\inc">
+      <UniqueIdentifier>{288a10cc-4990-448c-bcae-025f9ae33994}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devlib\src">
+      <UniqueIdentifier>{df3fb02f-5880-4c29-8c17-2d71b64792ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devlib\devlib_ll">
+      <UniqueIdentifier>{6093242a-3837-4d89-b39a-ace10fd834d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mbus_master">
+      <UniqueIdentifier>{785cf7b5-02d6-4e3a-9abc-e85894c1d5b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mbus_master\include">
+      <UniqueIdentifier>{b7f3a107-aac3-4ecb-9cb4-cadd0efeb97d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mbus_master\src">
+      <UniqueIdentifier>{17fe7d84-ac62-4c71-be4a-4718d493b21f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="mbus_master\ll">
+      <UniqueIdentifier>{46171851-cee3-4ff9-8891-5361d9fd11c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devlib\devlib_ll\inc">
+      <UniqueIdentifier>{6bbeda19-390e-446f-9f92-39148043b4ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="devlib\devlib_ll\src">
+      <UniqueIdentifier>{3f4d2abe-ff74-4daf-95d1-547e8d38499c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nt750">
+      <UniqueIdentifier>{45ec736f-ab96-4164-85de-cd2418a198f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nt750\inc">
+      <UniqueIdentifier>{5baa7d64-eba6-4c13-8b5d-d274615a248d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nt750\src">
+      <UniqueIdentifier>{6fe0905d-a7cd-4989-b4a5-690dd0e35531}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\mbus_master\mbus_master.c">
+      <Filter>mbus_master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\mbus_master\mbus_master_input.c">
+      <Filter>mbus_master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\mbus_master\mbus_master_int.c">
+      <Filter>mbus_master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\mbus_master\mbus_master_utils.c">
+      <Filter>mbus_master\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\system\mbus_master_ll_win32.c">
+      <Filter>mbus_master\ll</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devlib\devlib\src\system\devlib_ll_win32.c">
+      <Filter>devlib\devlib_ll\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devlib\devlib\src\system\devlib_sys_win32.c">
+      <Filter>devlib\devlib_ll\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devlib\devlib\src\devlib\devlib.c">
+      <Filter>devlib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devlib\devlib\src\devlib\devlib_input.c">
+      <Filter>devlib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devlib\devlib\src\devlib\devlib_int.c">
+      <Filter>devlib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\devlib\devlib\src\devlib\devlib_utils.c">
+      <Filter>devlib\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\nt750\lwrb.c">
+      <Filter>nt750\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\nt750\mbus_aux.c">
+      <Filter>nt750\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\nt750\mbus_protocol.c">
+      <Filter>nt750\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\mbus_master\src\nt750\nt750.c">
+      <Filter>nt750\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib_includes.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib_input.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib_int.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib_opt.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib_types.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\devlib\devlib_utils.h">
+      <Filter>devlib\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_hardware_selection.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_includes.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_input.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_int.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_opt.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_types.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\mbus_master\mbus_master_utils.h">
+      <Filter>mbus_master\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\system\mbus_master_ll.h">
+      <Filter>mbus_master\ll</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\system\mbus_master_sys.h">
+      <Filter>mbus_master\ll</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClInclude>
+    <ClInclude Include="devlib_opts.h">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\system\devlib_ll.h">
+      <Filter>devlib\devlib_ll\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\system\devlib_sys.h">
+      <Filter>devlib\devlib_ll\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\devlib\devlib\src\include\system\port\win32\devlib_sys_port.h">
+      <Filter>devlib\devlib_ll\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\nt750\commands.h">
+      <Filter>nt750\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\nt750\lwrb.h">
+      <Filter>nt750\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\nt750\mbus_aux.h">
+      <Filter>nt750\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\nt750\mbus_protocol.h">
+      <Filter>nt750\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\nt750\nt750.h">
+      <Filter>nt750\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\mbus_master\src\include\nt750\nt750_types.h">
+      <Filter>nt750\inc</Filter>
+    </ClInclude>
+    <ClInclude Include="mbus_master_opts.h">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
