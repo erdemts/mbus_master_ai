@@ -66,6 +66,11 @@ mbus_master_res_t mbus_master_read(mbus_lib_t *ctx) {
     ctx->master.address_mode = MBUS_MASTER_SECONDARY_ADDRESS_MODE;
     ctx->master.state = MBUS_MASTER_STATE_START_READING;
 
+    /* Switch baudrate if per-meter baudrate is set and port supports it */
+    if (ctx->master.baudrate != 0 && port->configure_uart != NULL) {
+        port->configure_uart(ctx->master.baudrate);
+    }
+
     /* Send SND_NKE based on read_type */
     uint8_t snd_nke_type = mbus_master_get_snd_nke_type(&ctx->master);
     if (snd_nke_type == MBUS_MASTER_SND_NKE_TYPE_SND_NKE_NETWORK) {

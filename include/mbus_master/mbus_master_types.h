@@ -22,6 +22,15 @@ extern "C" {
 #define MBUS_STOP       0x16
 #define MBUS_ACK        0xE5
 
+/* ── Standard baudrates (EN 13757-2) ───────────────────────────────── */
+
+#define MBUS_BAUDRATE_300       300     /**< Minimum, all slaves must support */
+#define MBUS_BAUDRATE_600       600
+#define MBUS_BAUDRATE_1200      1200
+#define MBUS_BAUDRATE_2400      2400    /**< Most common default */
+#define MBUS_BAUDRATE_4800      4800
+#define MBUS_BAUDRATE_9600      9600
+
 /* ── Enumerations ──────────────────────────────────────────────────── */
 
 typedef enum {
@@ -127,6 +136,7 @@ typedef struct {
 typedef struct {
     uint32_t                    mbus_id;            /**< MBUS ID of slave meter */
     uint8_t                     read_type;          /**< MBUS read type (SND_NKE, ACK bits) */
+    uint32_t                    baudrate;           /**< Per-meter baudrate (0 = use config default) */
     uint32_t                    read_period;        /**< Read period (minutes) */
     uint8_t                     primary_addr;       /**< Primary address */
     mbus_master_error_t         error;              /**< Error flags */

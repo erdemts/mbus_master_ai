@@ -46,10 +46,18 @@ void init(void) {
 /* In UART RX thread: */
 mbus_master_input_process(&mbus, uart_data, uart_len);
 
-/* To read a meter: */
+/* To read a meter at default baudrate (2400): */
 mbus.master.mbus_id = 12345678;
 mbus.master.read_type = 0;  /* SND_NKE Network, 0x53, wait ACK */
 mbus_master_res_t res = mbus_master_read(&mbus);
+
+/* To read a meter at a different baudrate: */
+mbus.master.mbus_id = 87654321;
+mbus.master.baudrate = MBUS_BAUDRATE_300;  /* Slow meter */
+res = mbus_master_read(&mbus);
+
+/* Reset to default baudrate for next meter: */
+mbus.master.baudrate = 0;  /* 0 = use config default */
 ```
 
 ## Build
