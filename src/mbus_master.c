@@ -11,6 +11,7 @@
  * @copyright   Copyright (c) 2025-2026, Inno Technology. All Rights Reserved.
  */
 #include "mbus_master/mbus_master.h"
+#include "mbus_master/nt750.h"
 #include <string.h>
 
 /* MBUS protocol constants */
@@ -175,3 +176,18 @@ uint32_t mbus_master_is_idle(const mbus_lib_t *ctx) {
     if (ctx == NULL) return 1;
     return (ctx->master.state == MBUS_MASTER_STATE_IDLE) ? 1 : 0;
 }
+
+/* TODO: implement NT750 GET/SET command protocol */
+#if MBUS_MASTER_CFG_NT750_ENABLED
+mbus_master_res_t mbus_master_get(mbus_lib_t *ctx, mbus_t *nt750,
+                                   nt750_cmd_t cmd) {
+    (void)ctx; (void)nt750; (void)cmd;
+    return MBUS_MASTER_ERR;
+}
+
+mbus_master_res_t mbus_master_set(mbus_lib_t *ctx, mbus_t *nt750,
+                                   nt750_cmd_t cmd) {
+    (void)ctx; (void)nt750; (void)cmd;
+    return MBUS_MASTER_ERR;
+}
+#endif
